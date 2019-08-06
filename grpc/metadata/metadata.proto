@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package  metadata;
+
+service MetadataGrpcService {
+    rpc AddMetadata(Enums) returns (ResponseEnum) {}
+    rpc GetMetadatas(Enums) returns  (ResponseEnums) {}
+    rpc GetQuerys(Enums) returns (ResponseEnums) {}
+}
+
+message ResponseEnums {
+    int32 code = 1;
+    string type = 2;
+    string message = 3;
+    optional PageEnums data = 4;
+}
+
+message PageEnums {
+    repeated Enums data = 1;
+    optional Page page = 2;
+}
+
+message Page {
+    int32 page = 1;
+    int32 pageSize = 2;
+    int32 count = 3;
+}
+
+message ResponseEnum {
+    int32 code = 1;
+    string type = 2;
+    string message = 3;
+    optional Enums data = 4;
+}
+
+message Enums {
+    optional int32 id = 1;
+    optional string value = 2;
+    optional string name = 3;
+    optional string enumName = 4;
+    optional int32 parentId = 5;
+    optional string del = 6;
+    optional string createDate = 7;
+    optional string updateDate = 8;
+    optional int32 page = 9;
+    optional int32 pageSize = 10;
+}
+

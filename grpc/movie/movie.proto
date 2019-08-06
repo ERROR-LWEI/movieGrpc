@@ -1,0 +1,79 @@
+import "google/protobuf/any.proto";
+syntax = "proto3";
+
+package movie;
+
+service MovieGrpcService {
+    rpc AddMovie(Movie) returns(ResponseMovie) {}
+    rpc GetMovies(Movie) returns(ResponseMovies) {}
+    // 人物服务
+    rpc AddFigure(Figure) returns(ResponseFigure) {}
+    // rpc FindOneFigure(Figure) returns(ResponseFigure) {}
+    // rpc UpdateFigure(Figure) returns(ResponseFigure) {}
+}
+
+message ResponseMovie {
+    int32 code = 1;
+    string type = 2;
+    string message = 3;
+    optional Movie data = 4;
+}
+
+message ResponseMovies {
+    int32 code = 1;
+    string type = 2;
+    string message = 3;
+    repeated Movie data = 4;
+}
+
+message Movie {
+    optional string id = 1;
+    optional string name = 2;
+    repeated string type = 3;
+    optional string year = 4;
+    repeated string site = 5;
+    optional string del = 6;
+    optional string updateDate = 7;
+    optional string createDate = 8;
+    optional string info = 9;
+    optional string img = 10;
+    repeated string language = 11;
+    optional string nameEN = 12;
+    repeated User vindicator = 13;
+    optional string vindicatorId = 14;
+}
+
+/* 人物数据请求 */
+message Figure {
+    optional string id = 1;
+    optional string doubanId = 2;
+    optional string name = 3;
+    optional string nameEN = 4;
+    optional string avatars = 5;
+    optional string info = 6;
+    optional string year = 7;
+    optional string nationality = 8;
+    optional string movie = 9;
+    optional string createDate = 10;
+    optional string updateDate = 11;
+    optional string del = 12;
+}
+
+message ResponseFigure {
+    int32 code = 1;
+    string type = 2;
+    string message = 3;
+    optional Figure data = 4;
+}
+
+message User {
+    string id = 1;
+    optional string name = 2;
+    optional string label = 3;
+    optional string info = 4;
+    optional string avatar = 5;
+    optional string accountId = 6;
+    optional string del = 7;
+    optional string createDate = 8;
+    optional string updateDate = 9;
+}

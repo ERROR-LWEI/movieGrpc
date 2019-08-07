@@ -15,8 +15,7 @@ async function bootstrap() {
   app.connectMicroservice(AuthGrpcConnect);
   app.connectMicroservice(MovieGrpcConnect);
   app.connectMicroservice(MetadataGrpcConnect);
-
-  await app.startAllMicroservicesAsync();
+  await app.startAllMicroservices();
   await app.listen(START_PORT)
   Logger.log(`服务启动成功${START_PORT}`)
 }

@@ -33,7 +33,6 @@ export class MetadataController {
     @UseFilters(new AllExceptions())
     async getMetadatas(data, metadata: any) {
         const _data = await this.metadataService.querys(data);
-        console.log(_data);
         return _data;
     }
 }

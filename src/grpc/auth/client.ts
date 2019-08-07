@@ -1,10 +1,13 @@
 import { ClientOptions, Transport } from '@nestjs/microservices';
 import { Observable } from "rxjs";
 import { join } from 'path';
+
+const { AUTH_PORT } = process.env;
+
 export const AuthGrpcConnect: ClientOptions = {
     transport: Transport.GRPC,
     options: {
-        url: 'localhost:6661',
+        url: `0.0.0.0:${AUTH_PORT}`,
         package: 'auth',
         protoPath: join(__dirname, '../../../grpc/auth/auth.proto'),
     }

@@ -6,6 +6,10 @@
     "admin": {
       "root": "libs/admin",
       "sourceRoot": "libs/admin/src"
+    },
+    "movie": {
+      "root": "libs/movie",
+      "sourceRoot": "libs/movie/src"
     }
   }
 }

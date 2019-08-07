@@ -15,6 +15,12 @@
       ],
       "@app/admin/*": [
         "libs/admin/src/*"
+      ],
+      "@app/movie": [
+        "libs/movie/src"
+      ],
+      "@app/movie/*": [
+        "libs/movie/src/*"
       ]
     }
   },

@@ -8,6 +8,8 @@ import { AuthGrpcConnect } from './grpc/auth/client';
 import { MovieGrpcConnect } from './grpc/movie/client';
 import { MetadataGrpcConnect } from './grpc/metadata/client';
 
+const { START_PORT } = process.env;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.connectMicroservice(AuthGrpcConnect);
@@ -15,7 +17,7 @@ async function bootstrap() {
   app.connectMicroservice(MetadataGrpcConnect);
 
   await app.startAllMicroservicesAsync();
-  app.listenAsync('6660')
-  Logger.log('服务启动成功')
+  await app.listen(START_PORT)
+  Logger.log(`服务启动成功${START_PORT}`)
 }
 bootstrap();

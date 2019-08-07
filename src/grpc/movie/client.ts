@@ -5,6 +5,7 @@ import { join } from 'path';
 export const MovieGrpcConnect: ClientOptions = {
     transport: Transport.GRPC,
     options: {
+        url: '0.0.0.0:6663',
         package: 'movie',
         protoPath: join(__dirname, '../../../grpc/movie/movie.proto'),
     }

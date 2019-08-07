@@ -9,15 +9,15 @@ import { AuthGrpcConnect, AuthService } from '../grpc/auth/client';
 
 @Controller('movie')
 export class MovieController implements  OnModuleInit {
-    @Client(AuthGrpcConnect)
-    private readonly client: ClientGrpc;
-    private authClient: AuthService;
+    // @Client(AuthGrpcConnect)
+    // private readonly client: ClientGrpc;
+    // private authClient: AuthService;
     constructor(
         private readonly movieService: MovieService
     ){}
 
     onModuleInit() {
-        this.authClient = this.client.getService<AuthService>('AuthService');
+        //this.authClient = this.client.getService<AuthService>('AuthService');
     }
 
     @GrpcMethod('MovieGrpcService', 'AddMovie')
@@ -25,9 +25,9 @@ export class MovieController implements  OnModuleInit {
     @UsePipes(new ValidationPipes())
     @UseFilters(new AllExceptions())
     async addMovie(_data: MovieDto, metadata: any) {
-        const { data } = await this.authClient.getUserMessage({ accountId: _data.vindicatorId }).toPromise();
+        // const { data } = await this.authClient.getUserMessage({ accountId: _data.vindicatorId }).toPromise();
         _data.vindicator = [];
-        _data.vindicator.push(data);
+        //_data.vindicator.push(data);
         return await this.movieService.add(_data);
     }
 

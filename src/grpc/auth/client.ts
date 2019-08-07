@@ -7,7 +7,7 @@ const { AUTH_PORT } = process.env;
 export const AuthGrpcConnect: ClientOptions = {
     transport: Transport.GRPC,
     options: {
-        url: `0.0.0.0:${AUTH_PORT}`,
+        url: `127.0.0.1:${AUTH_PORT}`,
         package: 'auth',
         protoPath: join(__dirname, '../../../grpc/auth/auth.proto'),
     }

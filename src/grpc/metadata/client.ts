@@ -5,7 +5,6 @@ import { join } from 'path';
 export const MetadataGrpcConnect: ClientOptions = {
     transport: Transport.GRPC,
     options: {
-        url: '127.0.0.1:6663' ,
         package: 'metadata',
         protoPath: join(__dirname, '../../../grpc/metadata/metadata.proto')
     }
